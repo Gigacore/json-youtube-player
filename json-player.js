@@ -11,10 +11,11 @@
     };
 
     //Configurations
-    player.videos = null; /* initial value */
-    player.numberOfVideos = 5; //Define the number of latest videos to fetch from channel.
+    player.channel = "TheVerge";
+    player.numberOfVideos = 5, //Define the number of latest videos to fetch from channel.
     player.videoWidth = 560;
     player.videoHeight = 315;
+    player.videos = null; /* initial value */
 
     player.init = function () {
         this.fetchVideos();
@@ -22,7 +23,7 @@
 
     player.fetchVideos = function () {
         /* Note: IE requires a callback for jsonc*/
-        $.getJSON('http://gdata.youtube.com/feeds/api/users/TheVerge/uploads?&v=2&max-results=' + player.numberOfVideos + '&alt=jsonc&callback=?', function (feed) {
+        $.getJSON('http://gdata.youtube.com/feeds/api/users/'+player.channel+'/uploads?&v=2&max-results=' + player.numberOfVideos + '&alt=jsonc&callback=?', function (feed) {
             player.videos = feed.data;
             player.populateVideos();
         });

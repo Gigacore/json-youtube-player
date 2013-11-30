@@ -1,0 +1,24 @@
+body {
+	background: #fff;
+}
+
+#wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#player_wrap {
+	width: 560px;
+	margin: 0 auto;
+}
+
+ul#videos {
+	width: 650px;
+	margin: 0 auto;
+}
+
+li.video{
+	float:left;
+	margin: 5px;
+	list-style: none;
+}

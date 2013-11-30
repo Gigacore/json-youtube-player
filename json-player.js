@@ -12,7 +12,7 @@
 
     //Configurations
     player.channel = "TheVerge";
-    player.numberOfVideos = 5, //Define the number of latest videos to fetch from channel.
+    player.numberOfVideos = 5; //Define the number of latest videos to fetch from channel.
     player.videoWidth = 560;
     player.videoHeight = 315;
     player.videos = null; /* initial value */

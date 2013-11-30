@@ -1,3 +1,6 @@
+// A simple JSON driven youtube player that can play videos via channel or custom data. 
+// Author: Santhosh -- https://github.com/Gigacore/
+
 (function (player, $, undefined) {
     'use strict';
 

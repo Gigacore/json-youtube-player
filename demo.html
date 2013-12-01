@@ -4,15 +4,30 @@
 	<meta charset="UTF-8">
 	<title>JSON Youtube Player</title>
 	<link rel="stylesheet" type="text/css" href="style.css" media="all">
+	<link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-<div id="wrap">
-	<div id="player_wrap"></div>
-	<ul id="videos"></ul>
-</div>
-	
+	<div id="wrap">
+		<header>
+			<h1>JSON Youtube Player</h1>
+		</header>
+		<div id="left_column">
+			<div id="player_wrap"></div>
+			<div id="meta">
+				<div id="title">
+					<h2></h2>
+				</div>
+				<div id="desc"></div>
+			</div>
+		</div>
+		<aside>
+			<ul id="videos"></ul>
+		</aside>
+	</div>
+	<footer>
+		<div id="credits"><p><strong>A plugin by:</strong> <a href="http://twitter.com/Gigacore/" target="_blank">Santhosh</a> | <a href="https://github.com/Gigacore/json-youtube-player" target="_blank">Download at GitHub</a></p></div>
+	</footer>
 </body>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="json-player.js"></script>
 </html>

@@ -41,7 +41,7 @@
     // List all latest videos fetched from the channel to the videoListElement and display first video on page load.
     player.populateVideos = function () {
         for (var i = 0; i < video.items.length; ++i) {
-            $(config.videoListElement).append('<li class="video" data-id="' + video.items[i].id + '" data-index="' + i + '"><img src="' + video.items[i].thumbnail.sqDefault + '" alt="' + video.items[i].title.toLowerCase().replace(/[ ]/g, '_').replace(/[!@#$%^&*-+:.,?-]/g, '') + '"/><h3 class="video_title">' + video.items[i].title + '</h3></li>')
+            $(config.videoListElement).append('<li class="video" data-id="' + video.items[i].id + '" data-index="' + i + '"><img src="' + video.items[i].thumbnail.sqDefault + '" alt="' + video.items[i].title.toLowerCase().replace(/[ ]/g, '_').replace(/[!@#$%^&*-+:.,?-©]/g, '') + '"/><h3 class="video_title">' + video.items[i].title + '</h3></li>')
         }
         player.playVideos();
         $('li.video:first-child').trigger('click');
@@ -50,11 +50,14 @@
     // Plays video upon clicking each li by sending required data to the playerElement.
     player.playVideos = function () {
         $('li.video').click(function () {
-            var currentIndex = $(this).attr('data-index');
+            $('.video').removeClass('active');
+            $(this).addClass('active');
+        
             $(config.playerElement).empty().append('<iframe width="' + config.videoWidth + '" height="' + config.videoHeight + '" src="//www.youtube.com/embed/' + $(this).attr('data-id') + '" frameborder="0" allowfullscreen></iframe>')
+            
+            var currentIndex = $(this).attr('data-index');    
             $('#meta #title h2').empty().html(video.items[currentIndex].title);
-            var getDesc = video.items[currentIndex].description;
-            $('#meta #desc').empty().html(getDesc.replace('\n', '<p>'));
+            $('#meta #desc').empty().html(video.items[currentIndex].description.replace('\n', '<p>'));
         });
     };
 

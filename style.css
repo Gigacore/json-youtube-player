@@ -44,7 +44,7 @@ li.video {
     cursor: pointer;
     padding: 0 0 0 10px;
 }
-.video:hover { background: #222 }
+.video:hover, .video.active { background: #222 }
 .video > img {
     float: left;
     position: absolute;

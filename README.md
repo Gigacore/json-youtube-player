@@ -8,9 +8,10 @@ Setup
 ===================
 
 1. Include jQuery.
-2. Include json-player.js
+2. Include ```json-player.js```
 3. Use the sample HTML snippet:
 
+```HTML
 <div id="left_column">
 	<div id="player_wrap"></div>
 		<div id="meta">
@@ -24,6 +25,23 @@ Setup
 		<ul id="videos"></ul>
 	</aside>
 </div>
+```
+
+4. Style according to your needs or use ```style.css```
+5. Edit ```json-player.js``` to config the player. Such as ```channel``` and ```numberOfVideos``` etc.
+
+```JS
+player.config = {
+        "channel"           : "your_channel_name",
+        "numberOfVideos"    : 6, 
+        "videoWidth"        : 560,
+        "videoHeight"       : 315,
+        "playerElement"     : "#player_wrap",
+        "videoListElement"  : "ul#videos"
+};
+```
+
+6. Done.
 
 
 License

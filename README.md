@@ -49,4 +49,8 @@ New features are in pipeline. You are most welcome to add any.
 
 License
 ===================
-JSON Youtube Player is Licensed uncder MIT.
+JSON Youtube Player is Licensed under MIT.
+
+Author
+===================
+Santhosh S

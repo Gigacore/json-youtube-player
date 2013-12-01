@@ -1,54 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <title>Json-youtube-player by Gigacore</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Json-youtube-player by Gigacore</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Json-youtube-player</h1>
+        <p class="header">A simple JSON driven youtube player that can play videos via channel or custom data.</p>
 
-        <header>
-          <h1>Json-youtube-player</h1>
-          <h2>A simple JSON driven youtube player that can play videos via channel or custom data.</h2>
-        </header>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/Gigacore/json-youtube-player/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/Gigacore/json-youtube-player/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/Gigacore/json-youtube-player">View On GitHub</a></li>
+        </ul>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/Gigacore/json-youtube-player/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/Gigacore/json-youtube-player/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/Gigacore/json-youtube-player" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/Gigacore">Gigacore</a></p>
 
-        <hr>
 
-        <section id="main_content">
-          <h1>
+      </header>
+      <section>
+        <h1>
 <a name="json-youtube-player" class="anchor" href="#json-youtube-player"><span class="octicon octicon-link"></span></a>json-youtube-player</h1>
 
 <p>A simple JSON driven youtube player that can play videos via channel or custom data.</p>
 
 <h1>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h1>
+
+<h6>
+<a name="1-include-jquery" class="anchor" href="#1-include-jquery"><span class="octicon octicon-link"></span></a>1. Include jQuery.</h6>
+
+<h6>
+<a name="2-include-json-playerjs" class="anchor" href="#2-include-json-playerjs"><span class="octicon octicon-link"></span></a>2. Include <code>json-player.js</code>
+</h6>
+
+<h6>
+<a name="3-use-the-sample-html-snippet" class="anchor" href="#3-use-the-sample-html-snippet"><span class="octicon octicon-link"></span></a>3. Use the sample HTML snippet:</h6>
+
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"left_column"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"player_wrap"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"meta"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"title"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h2&gt;&lt;/h2&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"desc"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;aside&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"videos"</span><span class="nt">&gt;&lt;/ul&gt;</span>
+    <span class="nt">&lt;/aside&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h6>
+<a name="4-style-according-to-your-needs-or-use-stylecss" class="anchor" href="#4-style-according-to-your-needs-or-use-stylecss"><span class="octicon octicon-link"></span></a>4. Style according to your needs or use <code>style.css</code>
+</h6>
+
+<h6>
+<a name="5-edit-json-playerjs-to-config-the-player-such-as-channel-and-numberofvideos-etc" class="anchor" href="#5-edit-json-playerjs-to-config-the-player-such-as-channel-and-numberofvideos-etc"><span class="octicon octicon-link"></span></a>5. Edit <code>json-player.js</code> to config the player. Such as <code>channel</code> and <code>numberOfVideos</code> etc.</h6>
+
+<div class="highlight highlight-JS"><pre><span class="nx">player</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"channel"</span>           <span class="o">:</span> <span class="s2">"your_channel_name"</span><span class="p">,</span>
+        <span class="s2">"numberOfVideos"</span>    <span class="o">:</span> <span class="mi">6</span><span class="p">,</span> 
+        <span class="s2">"videoWidth"</span>        <span class="o">:</span> <span class="mi">560</span><span class="p">,</span>
+        <span class="s2">"videoHeight"</span>       <span class="o">:</span> <span class="mi">315</span><span class="p">,</span>
+        <span class="s2">"playerElement"</span>     <span class="o">:</span> <span class="s2">"#player_wrap"</span><span class="p">,</span>
+        <span class="s2">"videoListElement"</span>  <span class="o">:</span> <span class="s2">"ul#videos"</span>
+<span class="p">};</span>
+</pre></div>
+
+<h1>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p>JSON Youtube Player is Licensed uncder MIT.</p>
-        </section>
-
-        <footer>
-          Json-youtube-player is maintained by <a href="https://github.com/Gigacore">Gigacore</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
     </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>

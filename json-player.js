@@ -4,44 +4,57 @@
 (function (player, $, undefined) {
     'use strict';
 
-    $.log = function (message) {
-        if (player.config.debug && (typeof window.console !== 'undefined' && typeof window.console.log !== 'undefined') && console.debug) {
-            console.debug(message);
-        }
+    // Basic Configurations 
+    player.config = {
+        "channel"           : "TheVerge",
+        "numberOfVideos"    : 6, //Define the number of latest videos to fetch from channel.
+        "videoWidth"        : 560, //px.
+        "videoHeight"       : 315, //px.
+        "playerElement"     : "#player_wrap",
+        "videoListElement"  : "ul#videos"
     };
 
-    //Configurations
-    player.channel = "TheVerge";
-    player.numberOfVideos = 5; //Define the number of latest videos to fetch from channel.
-    player.videoWidth = 560;
-    player.videoHeight = 315;
-    player.videos = null; /* initial value */
+    // Default config (Do not change unless you are sure)
+    player.defaults = {
+        "videos": null // Initial value (do not change);
+    }
 
+    // Declaring config and defaults to easy to use variables.
+    var config = player.config,
+        defaults = player.defaults,
+        video = null;
+
+    // Intitializing the player    
     player.init = function () {
         this.fetchVideos();
     }
 
+    // Fetching videos from Youtube Channel in form of JSONC. Note: IE requires a callback for jsonc
     player.fetchVideos = function () {
-        /* Note: IE requires a callback for jsonc*/
-        $.getJSON('http://gdata.youtube.com/feeds/api/users/'+player.channel+'/uploads?&v=2&max-results=' + player.numberOfVideos + '&alt=jsonc&callback=?', function (feed) {
-            player.videos = feed.data;
+        $.getJSON('http://gdata.youtube.com/feeds/api/users/' + config.channel + '/uploads?&v=2&max-results=' + config.numberOfVideos + '&alt=jsonc&callback=?', function (feed) {
+            defaults.videos = feed.data;
+            video = defaults.videos;
             player.populateVideos();
         });
     };
 
+    // List all latest videos fetched from the channel to the videoListElement and display first video on page load.
     player.populateVideos = function () {
-        var video = player.videos;
         for (var i = 0; i < video.items.length; ++i) {
-            //console.log(video.items[i].id);
-            $('ul#videos').append('<li class="video" data-id="' + video.items[i].id + '"><img src="' + video.items[i].thumbnail.sqDefault + '" alt=""/></li>')
+            $(config.videoListElement).append('<li class="video" data-id="' + video.items[i].id + '" data-index="' + i + '"><img src="' + video.items[i].thumbnail.sqDefault + '" alt="' + video.items[i].title.toLowerCase().replace(/[ ]/g, '_').replace(/[!@#$%^&*-+:.,?-]/g, '') + '"/><h3 class="video_title">' + video.items[i].title + '</h3></li>')
         }
         player.playVideos();
         $('li.video:first-child').trigger('click');
     };
 
+    // Plays video upon clicking each li by sending required data to the playerElement.
     player.playVideos = function () {
         $('li.video').click(function () {
-            $('#player_wrap').empty().append('<iframe width="' + player.videoWidth + '" height="' + player.videoHeight + '" src="//www.youtube.com/embed/' + $(this).attr('data-id') + '" frameborder="0" allowfullscreen></iframe>')
+            var currentIndex = $(this).attr('data-index');
+            $(config.playerElement).empty().append('<iframe width="' + config.videoWidth + '" height="' + config.videoHeight + '" src="//www.youtube.com/embed/' + $(this).attr('data-id') + '" frameborder="0" allowfullscreen></iframe>')
+            $('#meta #title h2').empty().html(video.items[currentIndex].title);
+            var getDesc = video.items[currentIndex].description;
+            $('#meta #desc').empty().html(getDesc.replace('\n', '<p>'));
         });
     };
 

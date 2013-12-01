@@ -3,6 +3,7 @@ json-youtube-player
 
 A simple JSON driven youtube player that can play videos via channel or custom data.
 
+![ScreenShot](http://i.imgur.com/WRgg7Fd.jpg?1)
 
 Setup
 ===================

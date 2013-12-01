@@ -7,16 +7,16 @@ body {
     font-family: sans-serif;
     color: #ccc;
 }
+h1,h2,h3 {
+    color: #fff;
+    font-weight: normal;
+    font-family: 'Electrolize', sans-serif;
+}
 h3 {
     float: right;
     font-size: 1.17em;
     margin: 10px;
     width: 310px;
-}
-h1,h2,h3 {
-    color: #fff;
-    font-weight: normal;
-    font-family: 'Electrolize', sans-serif;
 }
 #wrap {
     width: 1200px;

@@ -41,6 +41,11 @@ player.config = {
 };
 ```
 
+This is a work in progress
+===================
+
+New features are in pipeline. You are most welcome to add any.
+
 
 License
 ===================

@@ -7,9 +7,9 @@ A simple JSON driven youtube player that can play videos via channel or custom d
 Setup
 ===================
 
-1. Include jQuery.
-2. Include ```json-player.js```
-3. Use the sample HTML snippet:
+######1. Include jQuery.
+######2. Include ```json-player.js```
+######3. Use the sample HTML snippet: 
 
 ```HTML
 <div id="left_column">
@@ -26,9 +26,8 @@ Setup
 	</aside>
 </div>
 ```
-
-4. Style according to your needs or use ```style.css```
-5. Edit ```json-player.js``` to config the player. Such as ```channel``` and ```numberOfVideos``` etc.
+###### 4. Style according to your needs or use ```style.css```
+###### 5. Edit ```json-player.js``` to config the player. Such as ```channel``` and ```numberOfVideos``` etc.
 
 ```JS
 player.config = {
@@ -40,8 +39,6 @@ player.config = {
         "videoListElement"  : "ul#videos"
 };
 ```
-
-6. Done.
 
 
 License
